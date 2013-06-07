@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  def person?
+    account_type == "Person"
+  end
+
+  def organization?
+    account_type == "Organization"
+  end
+
   def to_s
     name
   end

@@ -1,0 +1,6 @@
+%h2 Admins:
+- if organization.people.empty?
+  .list-item
+    No admins
+- organization.people.each do |person|
+  =render person

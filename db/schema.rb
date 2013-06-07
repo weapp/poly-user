@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607195740) do
+ActiveRecord::Schema.define(:version => 20130607214237) do
+
+  create_table "organizations", :force => true do |t|
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",       :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "organizations_people", :force => true do |t|
+    t.integer "organization_id"
+    t.integer "person_id"
+  end
+
+  add_index "organizations_people", ["organization_id", "person_id"], :name => "index_organizations_people_on_organization_id_and_person_id", :unique => true
 
   create_table "people", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

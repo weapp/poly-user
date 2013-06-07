@@ -26,6 +26,8 @@ class Person < ActiveRecord::Base
 
   has_one :user, as: :account, dependent: :destroy
 
+  has_and_belongs_to_many :organizations
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :user_attributes
   accepts_nested_attributes_for :user

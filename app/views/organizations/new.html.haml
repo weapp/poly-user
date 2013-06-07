@@ -1,0 +1,9 @@
+%h2 New Organization
+= form_for(@organization) do |f|
+  = f.fields_for :user do |ff|
+    %div
+      = ff.label :name
+      %br/
+      = ff.text_field :name, :autofocus => true
+  %div
+    %f.submit

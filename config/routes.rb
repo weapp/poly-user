@@ -1,5 +1,15 @@
 PolyUser::Application.routes.draw do
+  devise_for :organizations
+
   resources :users
+  resources :organizations do
+    member do
+      post 'sign_in' => :signin
+    end
+    collection do
+      delete 'log_out' => :logout
+    end
+  end
 
 
   devise_for :people
