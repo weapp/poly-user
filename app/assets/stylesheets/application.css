@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00b7ff;
+}
+
+input{
+  margin: 1ex 0 2ex;
+}
+
+form{
+  margin-left: 1.5em;
+}

@@ -1,0 +1,7 @@
+%h1 Welcome #{current_user || "<Anonymous>"}
+-if current_user
+  %li= link_to "Log out", destroy_person_session_path, :method => :delete
+
+-else
+  %li= link_to "Sign in", new_person_session_path
+  %li= link_to "Sign up", new_person_registration_path
