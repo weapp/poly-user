@@ -1,4 +1,7 @@
 PolyUser::Application.routes.draw do
+  resources :users
+
+
   devise_for :people
 
   # The priority is based upon order of creation:

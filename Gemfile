@@ -38,4 +38,6 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'devise'
+gem 'cancan'
+gem 'friendly_id'
 gem 'haml-rails'

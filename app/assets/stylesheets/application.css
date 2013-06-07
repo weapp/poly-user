@@ -27,3 +27,13 @@ input{
 form{
   margin-left: 1.5em;
 }
+
+.list-item{
+  background: #F8F8F8;
+  padding: .5ex .5em;
+  margin: .5ex .5em;
+}
+
+.footer{
+  padding-top: 4ex
+}

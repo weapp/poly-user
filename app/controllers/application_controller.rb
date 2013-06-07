@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    current_person
+    if person_signed_in?
+      current_person.user
+    else
+      nil
+    end
   end
 end
