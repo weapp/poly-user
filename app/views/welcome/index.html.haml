@@ -3,19 +3,24 @@
 %h2 Current organization: #{current_organization && current_organization.user}
 %ul
   -if current_user
-    - if current_user.person?
-      %li= link_to "Log out", destroy_person_session_path, :method => :delete
-      %li
-        %h3 Organizations
-        %ul
-          %li= link_to "New Organization", new_organization_path
-          - current_person.organizations.includes(:user).each do |organization|
-            %li= link_to "sign in as: #{organization.user}", sign_in_organization_path(organization), method: :post
-    -elsif current_user.organization?
-      %li= link_to "Log out", log_out_organizations_path, :method => :delete
+    %li= link_to_unless current_user.person?, current_person.user, log_out_organizations_path, method: :delete
 
+    - current_person.organizations.each do |organization|
+      %li= link_to_unless current_organization == organization, organization.user, sign_in_organization_path(organization), method: :post
+
+    %br
+    %li= link_to "New Organization", new_organization_path
+
+%br
+%ul
+  - if current_user.person?
+    %li= link_to "Log out", destroy_person_session_path, :method => :delete
+  -elsif current_user.organization?
+    %li= link_to "Log out", log_out_organizations_path, :method => :delete
   -else
     %li= link_to "Sign in", new_person_session_path
     %li= link_to "Sign up", new_person_registration_path
+
+%br
 %ul
   %li= link_to "Users", users_path
